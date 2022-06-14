@@ -24,8 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_202348) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "position"
+    t.bigint "basketball_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["basketball_id"], name: "index_players_on_basketball_id"
   end
 
 end
