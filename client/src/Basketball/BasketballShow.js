@@ -23,7 +23,7 @@ const BasketballShow = ()=>{
     return (
         <div>
             <h1>Basketball Show</h1>
-            <Link to='/basketballs'>back to basketballs</Link>
+            <Link to='/basketball'>back to basketballs</Link>
             <p>id: {id}</p>
             <p>basketball: {JSON.stringify(basketball)}</p>
             <p>players: {JSON.stringify(players)}</p>

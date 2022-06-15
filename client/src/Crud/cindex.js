@@ -1,4 +1,4 @@
-const ALLCrud = ()=>{
+const Crud = ()=>{
   return (
       <div>
           <h1>Crud</h1>
@@ -6,4 +6,4 @@ const ALLCrud = ()=>{
   )
 }
 
-export default ALLCrud
+export default Crud

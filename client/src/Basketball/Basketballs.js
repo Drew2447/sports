@@ -1,12 +1,12 @@
 import { Outlet } from "react-router"
 import { Link } from "react-router-dom"
 
-const Authors = ()=>{
+const basketballs = ()=>{
     return (
         <div>
-            <div class='navbar'>
-              <Link to='/authors'>Authors</Link>
-              <Link to='/authors/new'>New Author</Link>
+            <div className='navbar'>
+              <Link to='/Basketballs'>Basketballs</Link>
+              <Link to='/Basketballs/new'>New Basketball</Link>
             </div>
             <div>
                <Outlet />
@@ -16,4 +16,4 @@ const Authors = ()=>{
     )
 }
 
-export default Authors
+export default basketballs
