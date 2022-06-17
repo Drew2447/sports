@@ -1,22 +1,24 @@
-import React, { useContext, useState } from "react"
-import { DataContext } from "../providers/DataProviders";
+import React, { useState } from "react"
 
-const BasketballForm = (props)=>{
-  const [team, setTeam] =useState(props.team ? props.team : "")
-  const [coach, setCoach] =useState(props.coach ? props.coach : "")
-  const {addBasketball, updateBasketball} = useContext(DataContext)
-  
+const BasketballForm = (props) => {
+  const [team, setTeam] = useState(props.team ? props.team : "")
+  const [coach, setCoach] = useState(props.coach || "")
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log({ team, coach })
     if (props.id) {
-      updateBasketball({ id: props.id, team, coach })
+      props.updateBasketball({ id: props.id, team, coach })
       console.log("update here:")
+      if(props.setShowEditForm){
+        props.setShowEditForm(false)
+      }
     } else {
-      addBasketball({ team, coach })
+      props.addBasketball({ team, coach })
+      console.log("create here:", { team, coach })
     }
-    setTeam("")
     setCoach("")
+    setTeam("")
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -24,21 +26,21 @@ const BasketballForm = (props)=>{
       <p>Team</p>
       <input
         value={team}
-        onChange={(e)=>{
+        onChange={(e) => {
           setTeam(e.target.value)
         }}
       />
+      <br/>
       <p>Coach</p>
       <input
         value={coach}
-        onChange={(e)=>{
+        onChange={(e) => {
           setCoach(e.target.value)
         }}
       />
       <br />
       <button>{props.id ? "update" : "save"}</button>
     </form>
-      
   )
 }
 

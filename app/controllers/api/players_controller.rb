@@ -1,5 +1,5 @@
 class Api::PlayersController < ApplicationController
-  before_action :set_basketball, exept: [:all_players]
+  before_action :set_basketball, except: [:all_players]
   before_action :set_player, only: [:show, :update, :destroy]
 
   def all_players
